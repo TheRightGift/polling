@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/materialize.min.css">
+    <link rel="stylesheet" href="./fonts/material-icons.css">
+    <title>'OZchat</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        h1 {
+            font-size: 3.2rem;
+        }
+        .padLeft {
+            padding-left: 7%;
+        }
+
+        .mLeft {
+            margin-left: 7%;
+            width: 93%;
+        }
+        @media only screen and (max-width: 600px) {
+            h1 {
+                margin-top: 10px;
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="notRegistered">
+        <div class="row">
+            <h1 class="center-align">Sports Opinion Polling System (NodeJS)</h1>
+        </div>
+        <div class="row">
+            <div class="col l12 m12 s12">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Welcome to Sports Opinion Polling System (NodeJS)</span>
+                        <p>
+                            This Sports poll is meant to demonstrate better User Experience when developing a distributive web/mobile application with <b>the Javascript Fullstack Technologies</b>. To use you are expected to register your name after which you will be expected to enter your opinion on a sport debate. Please click the "Register For The Poll" link below to register your name.
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#nameModal" class="modal-trigger">Register For The Poll</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="center-align"><small>Copyright &copy; g'OZieCHUKWU</small></p>
+        </div>
+    </div>
+
+    <div id="registered" class="container">
+        <div class="row center-align">
+            <h1>Who is the Greatest Of All Times (GOAT)?</h1>
+        </div>
+        <div class="row">
+            <form action="./server/takePoll.php" method="POST">
+                <div class="row">
+                    <div class="col l6">
+                        <label>
+                            <input name="poll" type="radio" value="M" />
+                            <span><img src="./img/messi.jpg" class="responsive-img"></span>
+                            <p class="padLeft">
+                                Lionel Messi has won a record six Ballon d'Or awards, and a record six European Golden Shoes. He has won a club-record 34 trophies, including ten La Liga titles, four UEFA Champions League titles and six Copas del Rey.
+                            </p>
+                        </label>
+                        <div id="messiVote" class="userVoted">
+                            <p class="mLeft"></p>
+                            <div class="progress mLeft">
+                                <div class="determinate"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col l6">
+                        <label>
+                            <input name="poll" type="radio" value="C"/>
+                            <span><img src="./img/cRonaldo.jpg" class="responsive-img"></span>
+                            <p class="padLeft">
+                                Christiano Ronaldo has won 5 Ballons d'Or & 4 European Golden Shoes. He has won 29 trophies in his career; 6 league titles, 5 UEFA Champions Leagues, 1 UEFA European Championship, and one UEFA Nations League.
+                            </p>
+                        </label>
+                        <div id="ronaldoVote" class="userVoted">
+                            <p class="mLeft"></p>
+                            <div class="progress mLeft">
+                                <div class="determinate"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row" id="userNotVoted">
+            <p class="center-align"></p>
+        </div>
+        
+    </div>
+    
+    <!-- nameModal Structure -->
+    <div id="nameModal" class="modal">
+        <div class="modal-content">
+            <h4 class="center-align">Register Your Name</h4>
+            <form class="col s12" id="nameForm">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/jquery-3.0.0.min.js"></script>
+    <script src="./js/materialize.min.js"></script>
+    <script src="./js/client.js"></script>
+</body>
